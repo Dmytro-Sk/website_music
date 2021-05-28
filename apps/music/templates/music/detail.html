@@ -5,6 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-  <br><br><h1 style="text-align:center; background-color: powderblue">{{ album }}</h1>
+    <img src="{{ album.album_logo }}" alt="Album name" width="400" height="400">
+    <h1>{{ album.album_title }}</h1>
+    <h2>{{ album.artist }}</h2>
+    <ul>
+        {% for song in album.song_set.all %}
+            <li>{{ song.song_title }} - {{ song.file_type }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
