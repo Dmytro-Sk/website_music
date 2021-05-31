@@ -26,17 +26,17 @@
                             <a href="{% url 'music:detail' album.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
 
                             <!-- Delete Album -->
-                            <form action="#" method="post" style="display: inline;">
+                            <form action="{% url 'music:album-delete' album.id %}" method="post" style="display: inline;">
                                 {% csrf_token %}
                                 <input type="hidden" name="album_id" value="{{ album.id }}">
-                                <button type="submit" class="btn btn-primary btn-sm">
+                                <button type="submit" class="btn btn-light btn-sm">
                                     <span class="material-icons md-18">delete</span>
                                 </button>
                             </form>
 
                             <!-- Favorite Album -->
-                            <a href="#" class="btn btn-primary btn-sm btn-favorite">
-                                <span class="material-icons md-18 {% if album.is_favorite %}active{% endif %}">star</span>
+                            <a href="{% url 'music:album-update' album.id %}" class="btn btn-light btn-sm btn-favorite">
+                                <span class="material-icons md-18 {% if album.is_favorite %}active{% endif %}">update</span>
                             </a>
 
                         </div>
