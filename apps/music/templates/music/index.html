@@ -23,22 +23,18 @@
                             <h4>{{ album.artist }}</h4>
 
                             <!-- View Details -->
-                            <a href="{% url 'music:detail' album.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+                            <a class="btn btn-primary btn-sm" href="{% url 'music:detail' album.id %}">View Details</a>
 
-                            <!-- Delete Album -->
-                            <form action="{% url 'music:album-delete' album.id %}" method="post" style="display: inline;">
-                                {% csrf_token %}
-                                <input type="hidden" name="album_id" value="{{ album.id }}">
-                                <button type="submit" class="btn btn-light btn-sm">
-                                    <span class="material-icons md-18">delete</span>
-                                </button>
-                            </form>
-
-                            <!-- Favorite Album -->
-                            <a href="{% url 'music:album-update' album.id %}" class="btn btn-light btn-sm btn-favorite">
-                                <span class="material-icons md-18 {% if album.is_favorite %}active{% endif %}">update</span>
+                            <!-- Update Album -->
+                            <a class="btn btn-warning btn-sm" href="{% url 'music:album-update' album.id %}">
+                                <i class="fas fa-sync-alt fa-lg"></i>
                             </a>
 
+                            <!-- Delete Album -->
+                            <a class="btn btn-danger btn-sm" href="{% url 'music:album-delete' album.id %}">
+                                    <span class="fas fa-trash-alt fa-lg"></span>
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -105,6 +101,5 @@
             </div>
         </div>
     {% endif %}
-
 </div>
 {% endblock content %}
