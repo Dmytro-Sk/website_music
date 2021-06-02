@@ -2,12 +2,7 @@ body {
     background-image: url("images/background.jpg");
 }
 
-.navbar {
-    font-size: 24px;
-}
-
 .navbar-brand {
     font-family: 'Satisfy', cursive;
-    font-size: 32px;
     text-shadow: 1px 1px 3px #ffffff;
 }
